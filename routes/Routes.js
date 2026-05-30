@@ -10,8 +10,9 @@ import { getWorkouts, createWorkout, updateWorkout, deleteWorkout, checkinWorkou
 import { getDiaries, createDiary, updateDiary, deleteDiary } from "../controllers/diaryController.js";
 import { getContacts, createContact, updateContact, deleteContact } from "../controllers/contactController.js";
 import { getLearnings, createLearning, updateLearning, deleteLearning } from "../controllers/learningController.js";
-import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage } from "../controllers/aiController.js";
+import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage, starMessage } from "../controllers/aiController.js";
 import { getReminders, createReminder, updateReminder, deleteReminder } from "../controllers/reminderController.js";
+import { getPasswords, createPassword, updatePassword, deletePassword } from "../controllers/passwordController.js";
 
 const router = express.Router();
 
@@ -78,10 +79,16 @@ router.put("/ai/messages/:id", editMessage);
 router.delete("/ai/messages/:id", deleteMessageById);
 router.post("/ai/messages/:id/react", reactToMessage);
 router.post("/ai/messages/:id/pin", pinMessage);
+router.post("/ai/messages/:id/star", starMessage);
 
 router.get("/reminders", getReminders);
 router.post("/reminders", createReminder);
 router.put("/reminders/:id", updateReminder);
 router.delete("/reminders/:id", deleteReminder);
+
+router.get("/passwords", getPasswords);
+router.post("/passwords", createPassword);
+router.put("/passwords/:id", updatePassword);
+router.delete("/passwords/:id", deletePassword);
 
 export default router;

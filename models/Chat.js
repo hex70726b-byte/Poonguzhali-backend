@@ -8,7 +8,8 @@ const ChatSchema = new mongoose.Schema({
   reactions: { type: [String], default: [] },
   replyTo: { type: String, default: null },
   isPinned: { type: Boolean, default: false },
-  isEdited: { type: Boolean, default: false }
+  isEdited: { type: Boolean, default: false },
+  isStarred: { type: Boolean, default: false }
 }, { timestamps: true });
 
 export default mongoose.model("Chat", ChatSchema);

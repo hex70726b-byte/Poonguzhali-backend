@@ -275,3 +275,16 @@ export const pinMessage = async (req, res) => {
     res.status(500).json({ message: "Error pinning message" });
   }
 };
+
+export const starMessage = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { isStarred } = req.body;
+    const chat = await Chat.findByIdAndUpdate(id, { isStarred }, { new: true });
+    if (!chat) return res.status(404).json({ message: "Message not found" });
+    res.json(chat);
+  } catch (error) {
+    console.error("Error starring message:", error);
+    res.status(500).json({ message: "Error starring message" });
+  }
+};
