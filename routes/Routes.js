@@ -10,7 +10,7 @@ import { getWorkouts, createWorkout, updateWorkout, deleteWorkout, checkinWorkou
 import { getDiaries, createDiary, updateDiary, deleteDiary } from "../controllers/diaryController.js";
 import { getContacts, createContact, updateContact, deleteContact } from "../controllers/contactController.js";
 import { getLearnings, createLearning, updateLearning, deleteLearning } from "../controllers/learningController.js";
-import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage, starMessage } from "../controllers/aiController.js";
+import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage, starMessage, getChatSettings, updateChatSettings } from "../controllers/aiController.js";
 import { getReminders, createReminder, updateReminder, deleteReminder } from "../controllers/reminderController.js";
 import { getPasswords, createPassword, updatePassword, deletePassword } from "../controllers/passwordController.js";
 import { getDocuments, syncDocuments } from "../controllers/documentController.js";
@@ -81,6 +81,8 @@ router.delete("/ai/messages/:id", deleteMessageById);
 router.post("/ai/messages/:id/react", reactToMessage);
 router.post("/ai/messages/:id/pin", pinMessage);
 router.post("/ai/messages/:id/star", starMessage);
+router.get("/ai/settings", getChatSettings);
+router.post("/ai/settings", updateChatSettings);
 
 router.get("/reminders", getReminders);
 router.post("/reminders", createReminder);
