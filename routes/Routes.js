@@ -13,6 +13,7 @@ import { getLearnings, createLearning, updateLearning, deleteLearning } from "..
 import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage, starMessage } from "../controllers/aiController.js";
 import { getReminders, createReminder, updateReminder, deleteReminder } from "../controllers/reminderController.js";
 import { getPasswords, createPassword, updatePassword, deletePassword } from "../controllers/passwordController.js";
+import { getDocuments, syncDocuments } from "../controllers/documentController.js";
 
 const router = express.Router();
 
@@ -90,5 +91,8 @@ router.get("/passwords", getPasswords);
 router.post("/passwords", createPassword);
 router.put("/passwords/:id", updatePassword);
 router.delete("/passwords/:id", deletePassword);
+
+router.get("/documents", getDocuments);
+router.post("/documents/sync", syncDocuments);
 
 export default router;
