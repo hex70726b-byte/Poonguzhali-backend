@@ -13,7 +13,7 @@ const accountScheme = new mongoose.Schema({
       required: true,
     },
     }
-})
+}, { timestamps: true })
 const Accounts = mongoose.model("Accounts", accountScheme);
 
 export default Accounts;

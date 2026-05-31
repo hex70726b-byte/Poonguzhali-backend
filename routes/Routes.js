@@ -14,8 +14,11 @@ import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMe
 import { getReminders, createReminder, updateReminder, deleteReminder } from "../controllers/reminderController.js";
 import { getPasswords, createPassword, updatePassword, deletePassword } from "../controllers/passwordController.js";
 import { getDocuments, syncDocuments } from "../controllers/documentController.js";
+import { getTodayActivity } from "../controllers/backupController.js";
 
 const router = express.Router();
+
+router.get("/backup/today-activity", getTodayActivity);
 
 router.get("/users", getUsers);
 router.post("/users", registerUsers);

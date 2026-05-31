@@ -31,8 +31,7 @@ const debtScheme = new mongoose.Schema({
       encryptedData: {
         type: String,
       },
-    }
-})
+}, { timestamps: true })
 const debt = mongoose.model("Debt", debtScheme);
 
 export default debt;
