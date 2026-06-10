@@ -10,11 +10,12 @@ import { getWorkouts, createWorkout, updateWorkout, deleteWorkout, checkinWorkou
 import { getDiaries, createDiary, updateDiary, deleteDiary } from "../controllers/diaryController.js";
 import { getContacts, createContact, updateContact, deleteContact } from "../controllers/contactController.js";
 import { getLearnings, createLearning, updateLearning, deleteLearning } from "../controllers/learningController.js";
-import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage, starMessage, getChatSettings, updateChatSettings } from "../controllers/aiController.js";
+import { chatWithGF, getChatHistory, clearChatHistory, saveCustomMessage, editMessage, deleteMessageById, reactToMessage, pinMessage, starMessage, getChatSettings, updateChatSettings, getPersonas, createPersona, deletePersona } from "../controllers/aiController.js";
 import { getReminders, createReminder, updateReminder, deleteReminder } from "../controllers/reminderController.js";
 import { getPasswords, createPassword, updatePassword, deletePassword } from "../controllers/passwordController.js";
 import { getDocuments, syncDocuments } from "../controllers/documentController.js";
 import { getTodayActivity } from "../controllers/backupController.js";
+import { getCategories, createCategory, deleteCategory } from "../controllers/categoryController.js";
 
 const router = express.Router();
 
@@ -86,6 +87,9 @@ router.post("/ai/messages/:id/pin", pinMessage);
 router.post("/ai/messages/:id/star", starMessage);
 router.get("/ai/settings", getChatSettings);
 router.post("/ai/settings", updateChatSettings);
+router.get("/ai/personas", getPersonas);
+router.post("/ai/personas", createPersona);
+router.delete("/ai/personas/:id", deletePersona);
 
 router.get("/reminders", getReminders);
 router.post("/reminders", createReminder);
@@ -99,5 +103,9 @@ router.delete("/passwords/:id", deletePassword);
 
 router.get("/documents", getDocuments);
 router.post("/documents/sync", syncDocuments);
+
+router.get("/categories", getCategories);
+router.post("/categories", createCategory);
+router.delete("/categories/:id", deleteCategory);
 
 export default router;
