@@ -16,6 +16,7 @@ import { getPasswords, createPassword, updatePassword, deletePassword } from "..
 import { getDocuments, syncDocuments } from "../controllers/documentController.js";
 import { getTodayActivity } from "../controllers/backupController.js";
 import { getCategories, createCategory, deleteCategory } from "../controllers/categoryController.js";
+import { getStepsByDate, updateStepsByDate } from "../controllers/dailyStepsController.js";
 
 const router = express.Router();
 
@@ -107,5 +108,8 @@ router.post("/documents/sync", syncDocuments);
 router.get("/categories", getCategories);
 router.post("/categories", createCategory);
 router.delete("/categories/:id", deleteCategory);
+
+router.get("/steps/:date", getStepsByDate);
+router.post("/steps/:date", updateStepsByDate);
 
 export default router;
